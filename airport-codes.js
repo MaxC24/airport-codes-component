@@ -1,4 +1,4 @@
-A
+let airportCodes = `A
 Aberdeen, SD (ABR) 
 Abilene, TX (ABI)
 Adak Island, AK (ADK)
@@ -3664,4 +3664,6 @@ Zielana, Poland (IEG)
 Zihuatanejo/Ixtapa, Mexico (ZIH)
 Zouerate, Mauritania (OUZ)
 Zugapa, Indonesia (UGU)
-Zurich, Switzerland (ZRH)
+Zurich, Switzerland (ZRH)`;
+
+export default airportCodes;

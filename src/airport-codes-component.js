@@ -10,12 +10,12 @@ export default class Aircode extends Component {
 	}
 
 	getAirportCode() {
-		// loaded from a file we gonna look up for all the airport codes available.
+		// loaded from a file that contains all the airport codes available.
 	}
 
 	render(){
 		return {
-			<input onChange={ this.getAirportCode } value={ this.state.airportCode } ></input>
+			<input onChange={ this.getAirportCode.bind(this) } value={ this.state.airportCode } ></input>
 		}
 	}
 }
