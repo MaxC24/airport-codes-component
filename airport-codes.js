@@ -1,4 +1,4 @@
-let airportCodes = `A
+module.exports = `A
 Aberdeen, SD (ABR) 
 Abilene, TX (ABI)
 Adak Island, AK (ADK)
@@ -3665,5 +3665,3 @@ Zihuatanejo/Ixtapa, Mexico (ZIH)
 Zouerate, Mauritania (OUZ)
 Zugapa, Indonesia (UGU)
 Zurich, Switzerland (ZRH)`;
-
-export default airportCodes;

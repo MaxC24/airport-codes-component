@@ -9,8 +9,9 @@ export default class Aircode extends Component {
 		};
 	}
 
-	getAirportCode() {
+	getAirportCode(e) {
 		// loaded from a file that contains all the airport codes available.
+		this.setState({ airportCode: e.target.value });
 	}
 
 	render(){
