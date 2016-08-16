@@ -1,22 +1,13 @@
-var aircodes = require('./airport-codes');
+const aircodes = require('./airport-codes');
 
-var arrOfCitiesAndCodes = aircodes.split('\n')
-.filter(function(line){
-	var parReg = /[\(\)]/;
-	return parReg.test(line);
-})
-.map(function(line) {
-	return convertLine(line);
-});
+const arrOfCitiesAndCodes = aircodes.split('\n')
+.filter(line => /[\(\)]/.test(line))
+.map(line => convertLine(line));
 
 function convertLine(line) {
-	var city = line.match(/[A-Za-z\s]+/)[0];
-	var aircode = line.match(/\((.+)\)/)[1];
-	return {
-		city: city,
-		aircode: aircode
-	};
+	let city = line.match(/[A-Za-z\s]+/)[0];
+	let aircode = line.match(/\((.+)\)/)[1];
+	return { city, aircode }
 };
-
 
 module.exports = arrOfCitiesAndCodes;
