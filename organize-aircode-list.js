@@ -1,4 +1,4 @@
-const aircodes = require('./airport-codes');
+import aircodes from './airport-codes');
 
 const arrOfCitiesAndCodes = aircodes.split('\n')
 .filter(line => /[\(\)]/.test(line))
@@ -10,4 +10,4 @@ function convertLine(line) {
 	return { city, aircode }
 };
 
-module.exports = arrOfCitiesAndCodes;
+export default arrOfCitiesAndCodes;
