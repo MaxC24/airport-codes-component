@@ -9,6 +9,7 @@ export default class Aircode extends Component {
 			city: '',
 			airportCode : ''
 		};
+		this.getAirportCode = this.getAirportCode.bind(this);
 	}
 
 	getAirportCode(e) {
@@ -19,12 +20,12 @@ export default class Aircode extends Component {
 				airportCode = aircodes[i].aircode;
 			}
 		}
-		this.setState({ city: e.target.value, aiportCode});
+		this.setState({ city: e.target.value, aiportCode });
 	}
 
 	render(){
 		return {
-			<input onChange={ this.getAirportCode.bind(this) } value={ this.state.city } ></input>
+			<input onChange={ this.getAirportCode } value={ this.state.city } ></input>
 		}
 	}
 }
