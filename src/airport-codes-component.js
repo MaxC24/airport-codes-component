@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import reactDOM from 'react-dom';
 import aircodes from '../organize-aircode-list.js';
 
 export default class Aircode extends Component {
@@ -13,7 +14,7 @@ export default class Aircode extends Component {
 	}
 
 	getAirportCode(e) {
-		// loaded from a file that contains all the airport codes available.
+		// loads from a file that contains all the airport codes available.
 		let airportCode;
 		for(let i = 0; i< aircodes.length; i++){
 			if(new RegExp(e.target.value.toLowerCase()).test(aircodes[i].city)) {
@@ -29,3 +30,5 @@ export default class Aircode extends Component {
 		}
 	}
 }
+
+reactDOM.render(Aircode, document.getElementById('app'));
