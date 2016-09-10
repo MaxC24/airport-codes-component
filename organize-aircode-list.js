@@ -1,4 +1,4 @@
-import aircodes from './airport-codes');
+import aircodes from './airport-codes.js';
 
 const arrOfCitiesAndCodes = aircodes.split('\n')
 .filter(line => /[\(\)]/.test(line))

@@ -2,33 +2,30 @@ import React, { Component } from 'react';
 import reactDOM from 'react-dom';
 import aircodes from '../organize-aircode-list.js';
 
-export default class Aircode extends Component {
+class Aircode extends Component {
 
 	constructor(props){
 		super(props);
 		this.state = {
 			city: '',
-			airportCode : ''
+			airportCode : []
 		};
 		this.getAirportCode = this.getAirportCode.bind(this);
 	}
 
 	getAirportCode(e) {
-		// loads from a file that contains all the airport codes available.
-		let airportCode;
-		for(let i = 0; i< aircodes.length; i++){
-			if(new RegExp(e.target.value.toLowerCase()).test(aircodes[i].city)) {
-				airportCode = aircodes[i].aircode;
-			}
-		}
-		this.setState({ city: e.target.value, aiportCode });
+		this.setState({ city: e.target.value , airportCode: aircodes.filter(codeObj => {
+				return new RegExp(e.target.value.toLowerCase().trim()).test(codeObj.city);
+			})
+		});
+		console.log(this.state.airportCode);
 	}
 
 	render(){
-		return {
+		return (
 			<input onChange={ this.getAirportCode } value={ this.state.city } ></input>
-		}
+		)
 	}
 }
 
-reactDOM.render(Aircode, document.getElementById('app'));
+reactDOM.render(<Aircode />, document.getElementById('app'));
