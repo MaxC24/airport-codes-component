@@ -71,16 +71,24 @@
 	var App = function (_Component) {
 	    _inherits(App, _Component);
 
-	    function App() {
+	    function App(props) {
 	        _classCallCheck(this, App);
 
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(App).apply(this, arguments));
+	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(App).call(this, props));
+
+	        _this.state = {
+	            codes: []
+	        };
+	        _this.handleChange = _this.handleChange.bind(_this);
+	        return _this;
 	    }
 
 	    _createClass(App, [{
 	        key: 'handleChange',
 	        value: function handleChange(codes) {
-	            console.log(codes);
+	            this.setState({
+	                codes: codes
+	            });
 	        }
 	    }, {
 	        key: 'render',
@@ -88,6 +96,18 @@
 	            return _react2.default.createElement(
 	                'div',
 	                null,
+	                _react2.default.createElement(
+	                    'ul',
+	                    null,
+	                    this.state.codes.length > 0 ? this.state.codes.map(function (code, i) {
+	                        return _react2.default.createElement(
+	                            'li',
+	                            { key: i },
+	                            code.city + ' ' + code.aircode,
+	                            ' '
+	                        );
+	                    }) : 'here'
+	                ),
 	                _react2.default.createElement(_airportCodesComponent2.default, { onChange: this.handleChange })
 	            );
 	        }
