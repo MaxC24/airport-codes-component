@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import reactDOM from 'react-dom';
 import aircodes from '../organize-aircode-list.js';
 
-class Aircode extends Component {
+export default class Aircode extends Component {
 
 	constructor(props){
 		super(props);
@@ -18,7 +17,9 @@ class Aircode extends Component {
 				return new RegExp(e.target.value.toLowerCase().trim()).test(codeObj.city);
 			})
 		});
-		console.log(this.state.airportCode);
+		if(this.props.onChange) {
+			this.props.onChange(this.state.airportCode);
+		}
 	}
 
 	render(){
@@ -27,5 +28,3 @@ class Aircode extends Component {
 		)
 	}
 }
-
-reactDOM.render(<Aircode />, document.getElementById('app'));
