@@ -100,7 +100,7 @@
 	                _react2.default.createElement(
 	                    'select',
 	                    null,
-	                    this.state.codes.length > 0 && this.state.codes.length < 5 ? this.state.codes.map(function (code, i) {
+	                    this.state.codes.length > 0 ? this.state.codes.map(function (code, i) {
 	                        return _react2.default.createElement(
 	                            'option',
 	                            { key: i },

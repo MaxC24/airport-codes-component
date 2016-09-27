@@ -23,7 +23,7 @@ class App extends Component {
             <div>
                 <Aircode onChange={this.handleChange} />
                 <select>
-                    { this.state.codes.length > 0 && this.state.codes.length < 5?  this.state.codes.map((code, i) => <option key={i} >{ code.city + ' ' + code.aircode } </option>) : '' }
+                    { this.state.codes.length > 0 ?  this.state.codes.map((code, i) => <option key={i} >{ code.city + ' ' + code.aircode } </option>) : '' }
                 </select>
             </div>
         )
