@@ -21,10 +21,10 @@ class App extends Component {
     render(){
         return (
             <div>
-                <ul>
-                    { this.state.codes.length > 0 ?  this.state.codes.map((code, i) => <li key={i} >{ code.city + ' ' + code.aircode } </li>) : 'here' }
-                </ul>
                 <Aircode onChange={this.handleChange} />
+                <select>
+                    { this.state.codes.length > 0 && this.state.codes.length < 5?  this.state.codes.map((code, i) => <option key={i} >{ code.city + ' ' + code.aircode } </option>) : '' }
+                </select>
             </div>
         )
     }

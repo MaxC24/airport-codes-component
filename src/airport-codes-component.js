@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import aircodes from '../organize-aircode-list.js';
+import * as organizedAircodes from '../organized-airport-codes';
+const aircodes = organizedAircodes.default;
 
 export default class Aircode extends Component {
 
