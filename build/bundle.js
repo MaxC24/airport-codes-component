@@ -88,9 +88,7 @@
 		}, {
 			key: 'render',
 			value: function render() {
-				return _react2.default.createElement(_AirportCode2.default, { onClick: this.getCode.bind(this) })
-				// <div> Help </div>
-				;
+				return _react2.default.createElement(_AirportCode2.default, { onClick: this.getCode.bind(this) });
 			}
 		}]);
 
@@ -21545,9 +21543,9 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _airportCodesComponent = __webpack_require__(176);
+	var _Input = __webpack_require__(176);
 
-	var _airportCodesComponent2 = _interopRequireDefault(_airportCodesComponent);
+	var _Input2 = _interopRequireDefault(_Input);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -21566,9 +21564,11 @@
 	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(AirportCodeComponent).call(this, props));
 
 	        _this.state = {
-	            codes: []
+	            codes: [],
+	            selected: ''
 	        };
 	        _this.handleChange = _this.handleChange.bind(_this);
+	        // this.getSelected = this.getSelected.bind(this);
 	        return _this;
 	    }
 
@@ -21580,6 +21580,12 @@
 	            });
 	        }
 	    }, {
+	        key: 'getSelected',
+	        value: function getSelected(code) {
+	            console.log(code);
+	            this.setState({ selected: code });
+	        }
+	    }, {
 	        key: 'render',
 	        value: function render() {
 	            var _this2 = this;
@@ -21587,20 +21593,37 @@
 	            return _react2.default.createElement(
 	                'div',
 	                null,
-	                _react2.default.createElement(_airportCodesComponent2.default, { onChange: this.handleChange }),
+	                _react2.default.createElement(_Input2.default, { onChange: this.handleChange }),
 	                _react2.default.createElement(
 	                    'select',
-	                    null,
-	                    this.state.codes.length > 0 ? this.state.codes.map(function (code, i) {
+	                    { onChange: function onChange(e) {
+	                            _this2.getSelected(e.target.value);
+	                        } },
+	                    this.state.codes.length > 0 ? [_react2.default.createElement(
+	                        'option',
+	                        null,
+	                        'select code'
+	                    )].concat(this.state.codes.map(function (code, i) {
 	                        return _react2.default.createElement(
 	                            'option',
-	                            { key: i, onClick: function onClick() {
-	                                    _this2.props.onClick(code);
-	                                } },
-	                            code.city + ' ' + code.aircode,
-	                            ' '
+	                            {
+	                                key: i,
+	                                value: code.aircode },
+	                            code.city + ' ' + code.aircode
 	                        );
-	                    }) : ''
+	                    })) : ''
+	                ),
+	                _react2.default.createElement(
+	                    'div',
+	                    null,
+	                    this.state.selected
+	                ),
+	                _react2.default.createElement(
+	                    'button',
+	                    { onClick: function onClick() {
+	                            _this2.getSelected(_this2.state.selected);
+	                        } },
+	                    'display the code'
 	                )
 	            );
 	        }
@@ -21615,8 +21638,6 @@
 	AirportCodeComponent.PropTypes = {
 	    onClick: _react2.default.PropTypes.func.isRequired
 	};
-
-	// reactDOM.render(<AirportCodeComponent />, document.getElementById('app'));
 
 /***/ },
 /* 176 */
