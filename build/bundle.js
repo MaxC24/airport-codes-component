@@ -21568,7 +21568,7 @@
 	            selected: ''
 	        };
 	        _this.handleChange = _this.handleChange.bind(_this);
-	        // this.getSelected = this.getSelected.bind(this);
+	        _this.getSelected = _this.getSelected.bind(_this);
 	        return _this;
 	    }
 
@@ -21581,9 +21581,8 @@
 	        }
 	    }, {
 	        key: 'getSelected',
-	        value: function getSelected(code) {
-	            console.log(code);
-	            this.setState({ selected: code });
+	        value: function getSelected(e) {
+	            this.setState({ selected: e.target.value });
 	        }
 	    }, {
 	        key: 'render',
@@ -21596,14 +21595,13 @@
 	                _react2.default.createElement(_Input2.default, { onChange: this.handleChange }),
 	                _react2.default.createElement(
 	                    'select',
-	                    { onChange: function onChange(e) {
-	                            _this2.getSelected(e.target.value);
-	                        } },
-	                    this.state.codes.length > 0 ? [_react2.default.createElement(
+	                    { onChange: this.getSelected, value: this.state.selected },
+	                    _react2.default.createElement(
 	                        'option',
 	                        null,
 	                        'select code'
-	                    )].concat(this.state.codes.map(function (code, i) {
+	                    ),
+	                    this.state.codes.length > 0 ? this.state.codes.map(function (code, i) {
 	                        return _react2.default.createElement(
 	                            'option',
 	                            {
@@ -21611,7 +21609,7 @@
 	                                value: code.aircode },
 	                            code.city + ' ' + code.aircode
 	                        );
-	                    })) : ''
+	                    }) : ''
 	                ),
 	                _react2.default.createElement(
 	                    'div',
@@ -21621,7 +21619,7 @@
 	                _react2.default.createElement(
 	                    'button',
 	                    { onClick: function onClick() {
-	                            _this2.getSelected(_this2.state.selected);
+	                            console.log(_this2.state.selected);
 	                        } },
 	                    'display the code'
 	                )

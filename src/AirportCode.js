@@ -11,6 +11,7 @@ export default class AirportCodeComponent extends Component {
             selected: ''
         }
         this.handleChange = this.handleChange.bind(this);
+        this.getSelected = this.getSelected.bind(this);
     }
 
     handleChange(codes){
@@ -19,18 +20,15 @@ export default class AirportCodeComponent extends Component {
         });
     }
 
-    getSelected(code) {
-        console.log(code);
-        this.setState({selected: code});
+    getSelected(e) {
+        this.setState({selected: e.target.value});
     }
 
     render(){
         return (
             <div>
                 <Input onChange={ this.handleChange } />
-                <select onChange={(e) => { 
-                    this.getSelected(e.target.value)
-                }}>
+                <select onChange={this.getSelected} value={this.state.selected}>
                     <option>select code</option>
                     { 
                         this.state.codes.length > 0 ?  
@@ -42,7 +40,7 @@ export default class AirportCodeComponent extends Component {
                     }
                 </select>
                 <div>{ this.state.selected }</div>
-                <button onClick={()=>{ this.getSelected(this.state.selected) }}>display the code</button>
+                <button onClick={()=>{ console.log(this.state.selected) }}>display the code</button>
             </div>
         )
     }
