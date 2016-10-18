@@ -15,7 +15,7 @@ class App extends Component {
 
 	render() {
 		return (
-			<AirportCode onClick={ this.getCode } />
+			<AirportCode onClick={ this.getCode } buttonName='search'/>
 		)
 	}
 }

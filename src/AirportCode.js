@@ -40,12 +40,13 @@ export default class AirportCodeComponent extends Component {
                         '' 
                     }
                 </select>
-                <button onClick={() => { this.props.onClick(this.state.selected)} }>display the code</button>
+                <button onClick={() => { this.props.onClick(this.state.selected)} }>{this.props.buttonName}</button>
             </div>
         )
     }
 }
 
 AirportCodeComponent.PropTypes = {
-    onClick: React.PropTypes.func.isRequired
+    onClick: React.PropTypes.func.isRequired,
+    buttonName: React.PropTypes.string.isRequired
 }

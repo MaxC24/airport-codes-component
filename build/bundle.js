@@ -88,7 +88,7 @@
 		}, {
 			key: 'render',
 			value: function render() {
-				return _react2.default.createElement(_AirportCode2.default, { onClick: this.getCode });
+				return _react2.default.createElement(_AirportCode2.default, { onClick: this.getCode, buttonName: 'search' });
 			}
 		}]);
 
@@ -21616,7 +21616,7 @@
 	                    { onClick: function onClick() {
 	                            _this2.props.onClick(_this2.state.selected);
 	                        } },
-	                    'display the code'
+	                    this.props.buttonName
 	                )
 	            );
 	        }
@@ -21629,7 +21629,8 @@
 
 
 	AirportCodeComponent.PropTypes = {
-	    onClick: _react2.default.PropTypes.func.isRequired
+	    onClick: _react2.default.PropTypes.func.isRequired,
+	    buttonName: _react2.default.PropTypes.string.isRequired
 	};
 
 /***/ },
