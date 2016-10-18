@@ -15,7 +15,7 @@ class App extends Component {
 
 	render() {
 		return (
-			<AirportCode onClick={ this.getCode.bind(this) } />
+			<AirportCode onClick={ this.getCode } />
 		)
 	}
 }

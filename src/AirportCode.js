@@ -34,13 +34,13 @@ export default class AirportCodeComponent extends Component {
                         this.state.codes.length > 0 ?  
                         this.state.codes.map((code, i) => <option 
                             key={i} 
-                            value={code.aircode} >{ code.city + ' ' + code.aircode } 
+                            value={code.aircode} >
+                            { code.city + ' ' + code.aircode }
                             </option>) : 
                         '' 
                     }
                 </select>
-                <div>{ this.state.selected }</div>
-                <button onClick={()=>{ console.log(this.state.selected) }}>display the code</button>
+                <button onClick={() => { this.props.onClick(this.state.selected)} }>display the code</button>
             </div>
         )
     }

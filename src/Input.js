@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import * as organizedAircodes from '../organized-airport-codes';
 const aircodes = organizedAircodes.default;
 
-export default class Aircode extends Component {
+export default class Input extends Component {
 
 	constructor(props){
 		super(props);

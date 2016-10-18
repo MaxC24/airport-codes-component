@@ -88,7 +88,7 @@
 		}, {
 			key: 'render',
 			value: function render() {
-				return _react2.default.createElement(_AirportCode2.default, { onClick: this.getCode.bind(this) });
+				return _react2.default.createElement(_AirportCode2.default, { onClick: this.getCode });
 			}
 		}]);
 
@@ -21612,14 +21612,9 @@
 	                    }) : ''
 	                ),
 	                _react2.default.createElement(
-	                    'div',
-	                    null,
-	                    this.state.selected
-	                ),
-	                _react2.default.createElement(
 	                    'button',
 	                    { onClick: function onClick() {
-	                            console.log(_this2.state.selected);
+	                            _this2.props.onClick(_this2.state.selected);
 	                        } },
 	                    'display the code'
 	                )
@@ -21669,13 +21664,13 @@
 
 	var aircodes = organizedAircodes.default;
 
-	var Aircode = function (_Component) {
-		_inherits(Aircode, _Component);
+	var Input = function (_Component) {
+		_inherits(Input, _Component);
 
-		function Aircode(props) {
-			_classCallCheck(this, Aircode);
+		function Input(props) {
+			_classCallCheck(this, Input);
 
-			var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Aircode).call(this, props));
+			var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Input).call(this, props));
 
 			_this.state = {
 				city: '',
@@ -21685,7 +21680,7 @@
 			return _this;
 		}
 
-		_createClass(Aircode, [{
+		_createClass(Input, [{
 			key: 'getAirportCode',
 			value: function getAirportCode(e) {
 				this.setState({ city: e.target.value, airportCode: aircodes.filter(function (codeObj) {
@@ -21703,10 +21698,10 @@
 			}
 		}]);
 
-		return Aircode;
+		return Input;
 	}(_react.Component);
 
-	exports.default = Aircode;
+	exports.default = Input;
 
 /***/ },
 /* 177 */
